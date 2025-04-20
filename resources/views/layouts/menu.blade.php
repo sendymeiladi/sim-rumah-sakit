@@ -85,7 +85,7 @@
         @endif
 
         @if(in_array(Auth::User()->role, ['Admin']))
-        <li class="menu-item  @if(in_array(Request::getRequestUri(),['/regions', '/employees', '/treatments', '/medicines', 'manage-user'])) active open @endif ">
+        <li class="menu-item  @if(in_array(Request::getRequestUri(),['/regions', '/employees', '/treatments', '/medicines', '/manage-user'])) active open @endif ">
             <a href="javascript:void(0);" class="menu-link menu-toggle waves-effect">
                 <i class="menu-icon tf-icons mdi mdi-database"></i>
                 <div>Master Data</div>
