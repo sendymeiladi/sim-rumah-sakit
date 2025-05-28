@@ -34,6 +34,7 @@ Route::middleware('auth')->group(function () {
 
     Route::middleware('role.access:Admin,Kasir')->group(function () {
         Route::get('/visit-bill', [VisitBillController::class, 'index'])->name('visitBill.index');
+        Route::get('/visit-bill/print', [VisitBillController::class, 'nota'])->name('visitBill.nota');
     });
 
     Route::middleware(['role.access:Admin'])->group(function () {
