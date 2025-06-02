@@ -33,9 +33,20 @@ class DashboardController extends Controller
         ->orderByDesc('total')
         ->get();
 
+        $dataRegion = Visits::select('regions.name', DB::raw('COUNT(*) as total'))
+        ->join('patients', 'visits.patient_id', '=', 'patients.id')
+        ->whereNotNull('visits.patient_id')
+        ->join('regions', 'patients.region_id', '=', 'regions.id')
+        ->groupBy('regions.name')
+        ->orderByDesc('total')
+        ->get();
+
         $polarLabels = $datatreatments->pluck('name');
         $polarData = $datatreatments->pluck('total');
 
-        return view('dashboard.index', compact('barLabels', 'barData', 'polarLabels', 'polarData'));
+        $polarLabelsWilayah = $dataRegion->pluck('name');
+        $polarDataWilayah = $dataRegion->pluck('total');
+
+        return view('dashboard.index', compact('barLabels', 'barData', 'polarLabels', 'polarData', 'polarLabelsWilayah', 'polarDataWilayah'));
     }
 }

@@ -75,8 +75,8 @@
 
             <div class="col-12">
                 <div class="form-floating form-floating-outline">
-                    <input id="phone" name="patientsPhone" class="form-control" type="tel"
-                    placeholder="Nomor Telepon" />
+                    <input id="phone" name="patientsPhone" class="form-control" type="number"
+                    placeholder="gunakan 08" maxlength="12" />
                     <div class="invalid-feedback"></div>
                     <label for="modalAddCard">Nomor Telepon</label>
                 </div>

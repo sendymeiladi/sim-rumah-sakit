@@ -28,6 +28,18 @@
                 </div>
             </div>
         </div>
+
+        <!-- Polar Area Chart -->
+        <div class="col-md-6 col-12 mb-4">
+            <div class="card">
+                <div class="card-header header-elements">
+                    <h5 class="card-title mb-0">Jumlah Wilayah</h5>
+                </div>
+                <div class="card-body">
+                    <canvas id="polarChartWilayah" class="chartjs" height="337"></canvas>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 @endsection
@@ -66,6 +78,8 @@
             const barData = @json($barData);
             const polarLabels = @json($polarLabels);
             const polarData = @json($polarData);
+            const polarLabelsWilayah = @json($polarLabelsWilayah);
+            const polarDataWilayah = @json($polarDataWilayah);
 
             // Polar Area Chart
             const polarChartEl = document.getElementById("polarChart");
@@ -77,6 +91,38 @@
                         datasets: [{
                             label: 'Population (millions)',
                             data: polarData,
+                            backgroundColor: ['#42a5f5', '#66bb6a', '#ffa726'], // Warna bisa disesuaikan
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'right',
+                                labels: {
+                                    color: '#333',
+                                    font: {
+                                        family: 'Inter'
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Polar Area Chart
+            const polarChartElWilayah = document.getElementById("polarChartWilayah");
+            if (polarChartElWilayah) {
+                new Chart(polarChartElWilayah, {
+                    type: 'polarArea',
+                    data: {
+                        labels: polarLabelsWilayah,
+                        datasets: [{
+                            label: 'Population (millions)',
+                            data: polarDataWilayah,
                             backgroundColor: ['#42a5f5', '#66bb6a', '#ffa726'], // Warna bisa disesuaikan
                             borderWidth: 1
                         }]
@@ -127,6 +173,7 @@
                     }
                 });
             }
+
         });
     </script>
 @endpush
