@@ -8,7 +8,7 @@
                     document.write(new Date().getFullYear());
                 </script>
                 , SIM-RS by
-                <a href="https://pixinvent.com" target="_blank"
+                <a href="https://www.linkedin.com/in/sendymeiladi/" target="_blank"
                    class="footer-link fw-medium">Sendy Meiladi</a>
             </div>
         </div>
