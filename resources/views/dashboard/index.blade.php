@@ -44,36 +44,12 @@
 </div>
 @endsection
 
-@push('styles')
-    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" type="text/css" />
-    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/typeahead-js/typeahead.css') }}" type="text/css" />
-@endpush
-
 @push('my-scripts')
     <script src="{{ asset('assets/vendor/libs/chartjs/chartjs.js') }}"></script>
-    <script src="{{ asset('assets/vendor/libs/jquery/jquery.js') }}"></script>
-    <script src="{{ asset('assets/vendor/libs/popper/popper.js') }}"></script>
-    <script src="{{ asset('assets/vendor/js/bootstrap.js') }}"></script>
-    <script src="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
-    <script src="{{ asset('assets/vendor/libs/node-waves/node-waves.js') }}"></script>
-
-    <script src="{{ asset('assets/vendor/libs/hammer/hammer.js') }}"></script>
-    <script src="{{ asset('assets/vendor/libs/i18n/i18n.js') }}"></script>
-    <script src="{{ asset('assets/vendor/libs/typeahead-js/typeahead.js') }}"></script>
-
-    <script src="{{ asset('assets/vendor/js/menu.js') }}"></script>
-    <!-- endbuild -->
-
-    <!-- Vendors JS -->
-    <script src="{{ asset('assets/vendor/libs/chartjs/chartjs.js') }}"></script>
-
-    <!-- Main JS -->
-    <script src="{{ asset('assets/js/main.js') }}"></script>
 
     <!-- Page JS -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Ambil data dari Laravel
             const barLabels = @json($barLabels);
             const barData = @json($barData);
             const polarLabels = @json($polarLabels);
@@ -91,7 +67,7 @@
                         datasets: [{
                             label: 'Population (millions)',
                             data: polarData,
-                            backgroundColor: ['#42a5f5', '#66bb6a', '#ffa726'], // Warna bisa disesuaikan
+                            backgroundColor: ['#42a5f5', '#66bb6a', '#ffa726'],
                             borderWidth: 1
                         }]
                     },
@@ -123,7 +99,7 @@
                         datasets: [{
                             label: 'Population (millions)',
                             data: polarDataWilayah,
-                            backgroundColor: ['#42a5f5', '#66bb6a', '#ffa726'], // Warna bisa disesuaikan
+                            backgroundColor: ['#42a5f5', '#66bb6a', '#ffa726'],
                             borderWidth: 1
                         }]
                     },
